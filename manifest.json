@@ -1,0 +1,16 @@
+{
+  "Name": "HotKey Viewer",
+  "Author": "User",
+  "Version": "1.0.0",
+  "Description": "Displays a keyboard overlay with hotkey bindings.",
+  "UniqueID": "User.HotKeyViewer",
+  "EntryDll": "HotKeyViewer.dll",
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": [],
+  "Dependencies": [
+    {
+      "UniqueID": "focustense.StardewUI",
+      "IsRequired": true
+    }
+  ]
+}
