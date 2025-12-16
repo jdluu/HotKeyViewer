@@ -11,7 +11,7 @@ namespace HotKeyViewer
     internal sealed class ModEntry : Mod
     {
         private IViewEngine _viewEngine = null!;
-        private IViewDrawable? _overlay = null!;
+        private IMenuController? _activeMenuController = null;
         private KeyboardViewModel _viewModel = new();
         private ModConfig _config = null!;
 
@@ -21,7 +21,6 @@ namespace HotKeyViewer
 
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
             helper.Events.Input.ButtonPressed += OnButtonPressed;
-            helper.Events.Display.RenderedHud += OnRenderedHud;
         }
 
         private void OnGameLaunched(object? sender, GameLaunchedEventArgs e)
@@ -53,10 +52,6 @@ namespace HotKeyViewer
 
             // Enable hot reloading for development
             _viewEngine.EnableHotReloadingWithSourceSync();
-
-            // Create the drawable
-            _overlay = _viewEngine.CreateDrawableFromAsset($"Mods/{ModManifest.UniqueID}/Views/KeyboardOverlay");
-            _overlay.Context = _viewModel;
         }
 
         private void OnButtonPressed(object? sender, ButtonPressedEventArgs e)
@@ -65,20 +60,25 @@ namespace HotKeyViewer
 
             if (e.Button == _config.ToggleKey)
             {
-                _viewModel.IsVisible = !_viewModel.IsVisible;
+                ToggleMenu();
             }
         }
 
-        private void OnRenderedHud(object? sender, RenderedHudEventArgs e)
+        private void ToggleMenu()
         {
-            if (_overlay != null && _viewModel.IsVisible)
+            if (_activeMenuController != null)
             {
-                // Draw centered
-                var viewport = Game1.uiViewport;
-                // Measure logic if needed, but IViewDrawable handles layout inside its bounds.
-                // We'll give it the full screen size
-                _overlay.MaxSize = new Vector2(viewport.Width, viewport.Height);
-                _overlay.Draw(e.SpriteBatch, Vector2.Zero);
+                _activeMenuController.Close();
+                _activeMenuController = null;
+            }
+            else
+            {
+                _activeMenuController = _viewEngine.CreateMenuControllerFromAsset($"Mods/{ModManifest.UniqueID}/Views/KeyboardOverlay", _viewModel);
+                
+                // Cleanup on close
+                _activeMenuController.Closed += () => _activeMenuController = null;
+                
+                Game1.activeClickableMenu = _activeMenuController.Menu;
             }
         }
     }

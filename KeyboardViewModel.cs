@@ -8,7 +8,7 @@ using StardewModdingAPI.Utilities;
 namespace HotKeyViewer
 {
     // Record to hold key binding, label, and custom dimensions
-    public record KeyDisplay(Keybind Keybind, string? Label = null, string Width = "64px", string Height = "64px")
+    public record KeyDisplay(Keybind Keybind, string Label, string Width = "64px", string Height = "64px")
     {
         public string LayoutSize => $"{Width} {Height}";
     }
@@ -49,11 +49,13 @@ namespace HotKeyViewer
         public List<KeyDisplay> ArrowBottomRow { get; private set; } = new();
 
         // Numpad Block
-        public List<KeyDisplay> NumpadRow1 { get; private set; } = new();
-        public List<KeyDisplay> NumpadRow2 { get; private set; } = new();
-        public List<KeyDisplay> NumpadRow3 { get; private set; } = new();
-        public List<KeyDisplay> NumpadRow4 { get; private set; } = new();
-        public List<KeyDisplay> NumpadRow5 { get; private set; } = new();
+        // Numpad Block
+        public List<KeyDisplay> NumpadLeft1 { get; private set; } = new();
+        public List<KeyDisplay> NumpadLeft2 { get; private set; } = new();
+        public List<KeyDisplay> NumpadLeft3 { get; private set; } = new();
+        public List<KeyDisplay> NumpadLeft4 { get; private set; } = new();
+        public List<KeyDisplay> NumpadLeft5 { get; private set; } = new();
+        public List<KeyDisplay> NumpadRight { get; private set; } = new();
 
         public KeyboardViewModel()
         {
@@ -65,9 +67,9 @@ namespace HotKeyViewer
             // --- Main Block ---
             FunctionRow = new List<KeyDisplay> 
             {
-                Key(SButton.Escape), Key(SButton.F1), Key(SButton.F2), Key(SButton.F3), Key(SButton.F4),
+                Key(SButton.Escape, width: "100px"), Key(SButton.F1), Key(SButton.F2), Key(SButton.F3), Key(SButton.F4),
                 Key(SButton.F5), Key(SButton.F6), Key(SButton.F7), Key(SButton.F8),
-                Key(SButton.F9), Key(SButton.F10), Key(SButton.F11), Key(SButton.F12)
+                Key(SButton.F9), Key(SButton.F10, width: "80px"), Key(SButton.F11, width: "80px"), Key(SButton.F12, width: "80px")
             };
 
             NumberRow = new List<KeyDisplay>
@@ -100,63 +102,64 @@ namespace HotKeyViewer
 
             SpaceRow = new List<KeyDisplay>
             {
-                Key(SButton.LeftControl, width: "90px"), Key(SButton.LeftWindows, width: "80px"), Key(SButton.LeftAlt, width: "80px"),
+                Key(SButton.LeftControl, width: "110px"), Key(SButton.LeftWindows, width: "100px"), Key(SButton.LeftAlt, width: "100px"),
                 Key(SButton.Space, width: "400px"), 
-                Key(SButton.RightAlt, width: "80px"), Key(SButton.RightWindows, width: "80px"), Key(SButton.RightControl, width: "90px")
+                Key(SButton.RightAlt, width: "100px"), Key(SButton.RightWindows, width: "100px"), Key(SButton.RightControl, width: "110px")
             };
 
             // --- Navigation Block ---
             SystemRow = new List<KeyDisplay>
             {
-                Key(SButton.PrintScreen), Key(SButton.Scroll), Key(SButton.Pause)
+                Key(SButton.PrintScreen, width: "110px"), Key(SButton.Scroll, width: "110px"), Key(SButton.Pause, width: "110px")
             };
 
             NavRow1 = new List<KeyDisplay>
             {
-                Key(SButton.Insert), Key(SButton.Home), Key(SButton.PageUp)
+                Key(SButton.Insert, width: "110px"), Key(SButton.Home, width: "110px"), Key(SButton.PageUp, width: "110px")
             };
             
             NavRow2 = new List<KeyDisplay>
             {
-                Key(SButton.Delete), Key(SButton.End), Key(SButton.PageDown)
+                Key(SButton.Delete, width: "110px"), Key(SButton.End, width: "110px"), Key(SButton.PageDown, width: "110px")
             };
 
             ArrowUpRow = new List<KeyDisplay> { Key(SButton.Up) };
             ArrowBottomRow = new List<KeyDisplay> { Key(SButton.Left), Key(SButton.Down), Key(SButton.Right) };
 
             // --- Numpad Block ---
-            // Note: StardewLib doesn't have explicit Numpad keys in SButton enum in strict PC standard,
-            // they are usually mapped to D1-D0 if not distinguished, or specific keys.
-            // Using standard SButton names which essentially map to XNA Keys.
-            // NumPad0 etc exist? Let's check SButton.
-            // If they don't exist in SButton, we might fall back to similar keys or skip.
-            // SButton usually has NumPad0..NumPad9.
-            
-            // Assume NumPad keys exist in SButton for now (standard XNA).
-            NumpadRow1 = new List<KeyDisplay> { Key(SButton.NumLock), Key(SButton.Divide), Key(SButton.Multiply), Key(SButton.Subtract) };
-            NumpadRow2 = new List<KeyDisplay> { Key(SButton.NumPad7), Key(SButton.NumPad8), Key(SButton.NumPad9), Key(SButton.Add, height: "135px") }; // + is tall
-            NumpadRow3 = new List<KeyDisplay> { Key(SButton.NumPad4), Key(SButton.NumPad5), Key(SButton.NumPad6) }; // + continues here visually
-            NumpadRow4 = new List<KeyDisplay> { Key(SButton.NumPad1), Key(SButton.NumPad2), Key(SButton.NumPad3), Key(SButton.Enter, height: "135px") }; // Enter is tall (on numpad often) or handled differently. Main Enter is above. This is NumPadEnter? SButton has just Enter usually. XNA has Enter.
-            // Actually XNA Keys has Enter and just Enter. 
-            // We'll use what we can. Safe to re-use Enter if needed but preferably specific.
-            // SButton doesn't distinguish Numpad Enter usually. We will use Enter again or ignore uniqueness for now.
-            // Using 'Enter' again for Numpad Enter.
-            
-            NumpadRow5 = new List<KeyDisplay> { Key(SButton.NumPad0, width: "135px"), Key(SButton.Decimal) };
+            // Left Section (3 columns wide)
+            NumpadLeft1 = new List<KeyDisplay> { Key(SButton.NumLock, width: "100px"), Key(SButton.Divide), Key(SButton.Multiply) };
+            NumpadLeft2 = new List<KeyDisplay> { Key(SButton.NumPad7), Key(SButton.NumPad8), Key(SButton.NumPad9) };
+            NumpadLeft3 = new List<KeyDisplay> { Key(SButton.NumPad4), Key(SButton.NumPad5), Key(SButton.NumPad6) };
+            NumpadLeft4 = new List<KeyDisplay> { Key(SButton.NumPad1), Key(SButton.NumPad2), Key(SButton.NumPad3) };
+            NumpadLeft5 = new List<KeyDisplay> { Key(SButton.NumPad0, width: "135px"), Key(SButton.Decimal) };
+
+            // Right Section (1 column wide, containing tall keys at specific positions)
+            // Note: Add and Enter on Numpad are typically 2 rows high.
+            // Using approximate height to span two rows + gaps. 
+            // Standard gap ~4px + Label height + Key height ~? 
+            // If we assume a fixed row height, we can estimate. 64 + 64 + margin.
+            // Let's use 150px for now to be safe or stick to 135px.
+            NumpadRight = new List<KeyDisplay> 
+            { 
+                Key(SButton.Subtract), 
+                Key(SButton.Add, height: "150px"), 
+                Key(SButton.Enter, height: "150px") // Numpad Enter 
+            };
 
 
             // Notify UI
             var props = new[] { 
                 nameof(FunctionRow), nameof(NumberRow), nameof(TopRow), nameof(HomeRow), nameof(BottomRow), nameof(SpaceRow),
                 nameof(SystemRow), nameof(NavRow1), nameof(NavRow2), nameof(ArrowUpRow), nameof(ArrowBottomRow),
-                nameof(NumpadRow1), nameof(NumpadRow2), nameof(NumpadRow3), nameof(NumpadRow4), nameof(NumpadRow5)
+                nameof(NumpadLeft1), nameof(NumpadLeft2), nameof(NumpadLeft3), nameof(NumpadLeft4), nameof(NumpadLeft5), nameof(NumpadRight)
             };
             foreach (var p in props) OnPropertyChanged(p);
         }
 
         private KeyDisplay Key(SButton btn, string width = "64px", string height = "64px")
         {
-            return new KeyDisplay(new Keybind(btn), GetActionId(btn), width, height);
+            return new KeyDisplay(new Keybind(btn), GetActionId(btn) ?? "", width, height);
         }
 
         private string? GetActionId(SButton button)
