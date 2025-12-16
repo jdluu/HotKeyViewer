@@ -2,6 +2,7 @@ using StardewModdingAPI;
 using System.ComponentModel;
 using Microsoft.Xna.Framework;
 using StardewValley;
+using StardewModdingAPI.Utilities;
 
 namespace HotKeyViewer
 {
@@ -22,6 +23,21 @@ namespace HotKeyViewer
                 }
             }
         }
+
+        public List<Keybind> Row1 { get; } = new()
+        {
+            new(SButton.D1), new(SButton.D2), new(SButton.D3), new(SButton.D4), new(SButton.D5)
+        };
+
+        public List<Keybind> Row2 { get; } = new()
+        {
+            new(SButton.Q), new(SButton.W), new(SButton.E), new(SButton.R), new(SButton.T), new(SButton.Y)
+        };
+
+        public List<Keybind> Row3 { get; } = new()
+        {
+            new(SButton.A), new(SButton.S), new(SButton.D), new(SButton.F), new(SButton.G), new(SButton.H)
+        };
 
         // Helper to trigger property changes
         protected void OnPropertyChanged(string propertyName)
