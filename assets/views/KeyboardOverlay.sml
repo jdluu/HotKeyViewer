@@ -1,5 +1,5 @@
 <lane vertical-content-alignment="Middle" horizontal-content-alignment="Middle" orientation="Vertical" layout="stretch">
-    <frame layout="1550px 650px" background-tint="#AA000000" padding="20" background={@Mods/StardewUI/Sprites/MenuBackground} border={@Mods/StardewUI/Sprites/MenuBorder} border-thickness="36, 36, 40, 36">
+    <frame layout="1920px 800px" background-tint="#AA000000" padding="20" background={@Mods/StardewUI/Sprites/MenuBackground} border={@Mods/StardewUI/Sprites/MenuBorder} border-thickness="36, 36, 40, 36">
         <lane orientation="Vertical">
             <label text="Keyboard Overlay" font="dialogue" horizontal-alignment="Middle" color="#FFFFFF" />
             
@@ -11,7 +11,9 @@
                     <lane margin="0,0,0,10">
                         <lane *repeat={:FunctionRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <label text={:Label} font="small" color="#222222" />
-                             <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                             <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                         </lane>
                     </lane>
                     
@@ -19,7 +21,9 @@
                     <lane>
                          <lane *repeat={:NumberRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <label text={:Label} font="small" color="#222222" />
-                             <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                             <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                         </lane>
                     </lane>
 
@@ -27,7 +31,9 @@
                     <lane>
                          <lane *repeat={:TopRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <label text={:Label} font="small" color="#222222" />
-                             <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                             <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                         </lane>
                     </lane>
 
@@ -35,7 +41,9 @@
                      <lane>
                          <lane *repeat={:HomeRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <label text={:Label} font="small" color="#222222" />
-                             <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                             <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                         </lane>
                     </lane>
                     
@@ -43,7 +51,9 @@
                      <lane>
                          <lane *repeat={:BottomRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <label text={:Label} font="small" color="#222222" />
-                             <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                             <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                         </lane>
                     </lane>
 
@@ -51,7 +61,9 @@
                      <lane>
                          <lane *repeat={:SpaceRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <label text={:Label} font="small" color="#222222" />
-                             <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                             <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                         </lane>
                     </lane>
                 </lane>
@@ -62,7 +74,9 @@
                     <lane margin="0,0,0,10">
                         <lane *repeat={:SystemRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <label text={:Label} font="small" color="#222222" />
-                             <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                             <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                         </lane>
                     </lane>
                     
@@ -70,14 +84,18 @@
                     <lane>
                         <lane *repeat={:NavRow1} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <label text={:Label} font="small" color="#222222" />
-                             <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                             <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                         </lane>
                     </lane>
                      <!-- Nav Block 2 (Del) -->
                     <lane>
                         <lane *repeat={:NavRow2} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <label text={:Label} font="small" color="#222222" />
-                             <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                             <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                         </lane>
                     </lane>
                     
@@ -85,14 +103,18 @@
                     <lane margin="68, 20, 0, 0">
                         <lane *repeat={:ArrowUpRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <label text={:Label} font="small" color="#222222" />
-                             <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                             <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                         </lane>
                     </lane>
                      <!-- Arrow Bottom -->
                     <lane>
                         <lane *repeat={:ArrowBottomRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <label text={:Label} font="small" color="#222222" />
-                             <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                             <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                         </lane>
                     </lane>
                 </lane>
@@ -105,35 +127,45 @@
                         <lane>
                             <lane *repeat={:NumpadLeft1} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                                  <label text={:Label} font="small" color="#222222" />
-                                 <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                                 <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                             </lane>
                         </lane>
                          <!-- Numpad Row 2 -->
                         <lane>
                             <lane *repeat={:NumpadLeft2} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                                  <label text={:Label} font="small" color="#222222" />
-                                 <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                                 <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                             </lane>
                         </lane>
                          <!-- Numpad Row 3 -->
                         <lane>
                             <lane *repeat={:NumpadLeft3} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                                  <label text={:Label} font="small" color="#222222" />
-                                 <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                                 <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                             </lane>
                         </lane>
                          <!-- Numpad Row 4 -->
                         <lane>
                             <lane *repeat={:NumpadLeft4} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                                  <label text={:Label} font="small" color="#222222" />
-                                 <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                                 <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                             </lane>
                         </lane>
                          <!-- Numpad Row 5 -->
                         <lane>
                             <lane *repeat={:NumpadLeft5} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                                  <label text={:Label} font="small" color="#222222" />
-                                 <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                                 <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                             </lane>
                         </lane>
                     </lane>
@@ -142,7 +174,9 @@
                     <lane orientation="Vertical">
                         <lane *repeat={:NumpadRight} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <label text={:Label} font="small" color="#222222" />
-                             <keybind keybind={:Keybind} layout={:LayoutSize} sprite-map={@Mods/StardewUI/SpriteMaps/Buttons:default-default-0.5} />
+                             <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} padding="0" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
+                                <label text={:FaceText} color="#222222" font="small" />
+                             </frame>
                         </lane>
                     </lane>
                 </lane>

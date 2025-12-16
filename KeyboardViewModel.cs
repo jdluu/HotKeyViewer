@@ -8,7 +8,7 @@ using StardewModdingAPI.Utilities;
 namespace HotKeyViewer
 {
     // Record to hold key binding, label, and custom dimensions
-    public record KeyDisplay(Keybind Keybind, string Label, string Width = "64px", string Height = "64px")
+    public record KeyDisplay(Keybind Keybind, string FaceText, string Label, string Width = "80px", string Height = "80px")
     {
         public string LayoutSize => $"{Width} {Height}";
     }
@@ -67,60 +67,60 @@ namespace HotKeyViewer
             // --- Main Block ---
             FunctionRow = new List<KeyDisplay> 
             {
-                Key(SButton.Escape, width: "100px"), Key(SButton.F1), Key(SButton.F2), Key(SButton.F3), Key(SButton.F4),
+                Key(SButton.Escape, width: "120px"), Key(SButton.F1), Key(SButton.F2), Key(SButton.F3), Key(SButton.F4),
                 Key(SButton.F5), Key(SButton.F6), Key(SButton.F7), Key(SButton.F8),
-                Key(SButton.F9), Key(SButton.F10, width: "80px"), Key(SButton.F11, width: "80px"), Key(SButton.F12, width: "80px")
+                Key(SButton.F9), Key(SButton.F10, width: "100px"), Key(SButton.F11, width: "100px"), Key(SButton.F12, width: "100px")
             };
 
             NumberRow = new List<KeyDisplay>
             {
                 Key(SButton.OemTilde), Key(SButton.D1), Key(SButton.D2), Key(SButton.D3), Key(SButton.D4), Key(SButton.D5),
                 Key(SButton.D6), Key(SButton.D7), Key(SButton.D8), Key(SButton.D9), Key(SButton.D0),
-                Key(SButton.OemMinus), Key(SButton.OemPlus), Key(SButton.Back, width: "100px")
+                Key(SButton.OemMinus), Key(SButton.OemPlus), Key(SButton.Back, width: "135px")
             };
 
             TopRow = new List<KeyDisplay>
             {
-                Key(SButton.Tab, width: "100px"), Key(SButton.Q), Key(SButton.W), Key(SButton.E), Key(SButton.R), Key(SButton.T),
+                Key(SButton.Tab, width: "130px"), Key(SButton.Q), Key(SButton.W), Key(SButton.E), Key(SButton.R), Key(SButton.T),
                 Key(SButton.Y), Key(SButton.U), Key(SButton.I), Key(SButton.O), Key(SButton.P),
-                Key(SButton.OemOpenBrackets), Key(SButton.OemCloseBrackets), Key(SButton.OemPipe, width: "90px")
+                Key(SButton.OemOpenBrackets), Key(SButton.OemCloseBrackets), Key(SButton.OemPipe, width: "110px")
             };
 
             HomeRow = new List<KeyDisplay>
             {
-                Key(SButton.CapsLock, width: "110px"), Key(SButton.A), Key(SButton.S), Key(SButton.D), Key(SButton.F), Key(SButton.G),
+                Key(SButton.CapsLock, width: "140px"), Key(SButton.A), Key(SButton.S), Key(SButton.D), Key(SButton.F), Key(SButton.G),
                 Key(SButton.H), Key(SButton.J), Key(SButton.K), Key(SButton.L), Key(SButton.OemSemicolon), Key(SButton.OemQuotes),
-                Key(SButton.Enter, width: "140px")
+                Key(SButton.Enter, width: "180px")
             };
 
             BottomRow = new List<KeyDisplay>
             {
-                Key(SButton.LeftShift, width: "140px"), Key(SButton.Z), Key(SButton.X), Key(SButton.C), Key(SButton.V), Key(SButton.B),
+                Key(SButton.LeftShift, width: "175px"), Key(SButton.Z), Key(SButton.X), Key(SButton.C), Key(SButton.V), Key(SButton.B),
                 Key(SButton.N), Key(SButton.M), Key(SButton.OemComma), Key(SButton.OemPeriod), Key(SButton.OemQuestion),
-                Key(SButton.RightShift, width: "160px")
+                Key(SButton.RightShift, width: "200px")
             };
 
             SpaceRow = new List<KeyDisplay>
             {
-                Key(SButton.LeftControl, width: "110px"), Key(SButton.LeftWindows, width: "100px"), Key(SButton.LeftAlt, width: "100px"),
-                Key(SButton.Space, width: "400px"), 
-                Key(SButton.RightAlt, width: "100px"), Key(SButton.RightWindows, width: "100px"), Key(SButton.RightControl, width: "110px")
+                Key(SButton.LeftControl, width: "135px"), Key(SButton.LeftWindows, width: "120px"), Key(SButton.LeftAlt, width: "120px"),
+                Key(SButton.Space, width: "500px"), 
+                Key(SButton.RightAlt, width: "120px"), Key(SButton.RightWindows, width: "120px"), Key(SButton.RightControl, width: "135px")
             };
 
             // --- Navigation Block ---
             SystemRow = new List<KeyDisplay>
             {
-                Key(SButton.PrintScreen, width: "110px"), Key(SButton.Scroll, width: "110px"), Key(SButton.Pause, width: "110px")
+                Key(SButton.PrintScreen, width: "135px"), Key(SButton.Scroll, width: "135px"), Key(SButton.Pause, width: "135px")
             };
 
             NavRow1 = new List<KeyDisplay>
             {
-                Key(SButton.Insert, width: "110px"), Key(SButton.Home, width: "110px"), Key(SButton.PageUp, width: "110px")
+                Key(SButton.Insert, width: "135px"), Key(SButton.Home, width: "135px"), Key(SButton.PageUp, width: "135px")
             };
             
             NavRow2 = new List<KeyDisplay>
             {
-                Key(SButton.Delete, width: "110px"), Key(SButton.End, width: "110px"), Key(SButton.PageDown, width: "110px")
+                Key(SButton.Delete, width: "135px"), Key(SButton.End, width: "135px"), Key(SButton.PageDown, width: "135px")
             };
 
             ArrowUpRow = new List<KeyDisplay> { Key(SButton.Up) };
@@ -128,11 +128,11 @@ namespace HotKeyViewer
 
             // --- Numpad Block ---
             // Left Section (3 columns wide)
-            NumpadLeft1 = new List<KeyDisplay> { Key(SButton.NumLock, width: "100px"), Key(SButton.Divide), Key(SButton.Multiply) };
+            NumpadLeft1 = new List<KeyDisplay> { Key(SButton.NumLock, width: "125px"), Key(SButton.Divide), Key(SButton.Multiply) };
             NumpadLeft2 = new List<KeyDisplay> { Key(SButton.NumPad7), Key(SButton.NumPad8), Key(SButton.NumPad9) };
             NumpadLeft3 = new List<KeyDisplay> { Key(SButton.NumPad4), Key(SButton.NumPad5), Key(SButton.NumPad6) };
             NumpadLeft4 = new List<KeyDisplay> { Key(SButton.NumPad1), Key(SButton.NumPad2), Key(SButton.NumPad3) };
-            NumpadLeft5 = new List<KeyDisplay> { Key(SButton.NumPad0, width: "135px"), Key(SButton.Decimal) };
+            NumpadLeft5 = new List<KeyDisplay> { Key(SButton.NumPad0, width: "168px"), Key(SButton.Decimal) };
 
             // Right Section (1 column wide, containing tall keys at specific positions)
             // Note: Add and Enter on Numpad are typically 2 rows high.
@@ -143,8 +143,8 @@ namespace HotKeyViewer
             NumpadRight = new List<KeyDisplay> 
             { 
                 Key(SButton.Subtract), 
-                Key(SButton.Add, height: "150px"), 
-                Key(SButton.Enter, height: "150px") // Numpad Enter 
+                Key(SButton.Add, height: "185px"), 
+                Key(SButton.Enter, height: "185px") // Numpad Enter 
             };
 
 
@@ -157,9 +157,102 @@ namespace HotKeyViewer
             foreach (var p in props) OnPropertyChanged(p);
         }
 
-        private KeyDisplay Key(SButton btn, string width = "64px", string height = "64px")
+        private KeyDisplay Key(SButton btn, string width = "80px", string height = "80px")
         {
-            return new KeyDisplay(new Keybind(btn), GetActionId(btn) ?? "", width, height);
+            // We use SButton.None for the actual Keybind to prevent StardewUI from rendering its default text.
+            // We will render our own FaceText instead.
+            // However, we still need a background. If Keybind(None) renders nothing, we might need to handle that in SML.
+            // For now, let's keep the true button for debug, but ideally we switch to None if SML handles background.
+            // Actually, let's try passing the real button but relying on the overlay label covering it, 
+            // OR finding a way to make the button "blank".
+            // If we use SButton.None, we need a separate way to draw the box.
+            // Let's rely on the strategy of: SML purely renders a generic button background + our label.
+            // So passing SButton.None is safer to ensure no double-text.
+            return new KeyDisplay(new Keybind(SButton.None), GetKeyLabel(btn), GetActionId(btn) ?? "", width, height);
+        }
+
+        private string GetKeyLabel(SButton btn)
+        {
+            return btn switch
+            {
+                SButton.OemTilde => "`",
+                SButton.D1 => "1",
+                SButton.D2 => "2",
+                SButton.D3 => "3",
+                SButton.D4 => "4",
+                SButton.D5 => "5",
+                SButton.D6 => "6",
+                SButton.D7 => "7",
+                SButton.D8 => "8",
+                SButton.D9 => "9",
+                SButton.D0 => "0",
+                SButton.OemMinus => "-",
+                SButton.OemPlus => "+",
+                SButton.Back => "Back",
+                SButton.Tab => "Tab",
+                SButton.OemOpenBrackets => "[",
+                SButton.OemCloseBrackets => "]",
+                SButton.OemPipe => "\\",
+                SButton.CapsLock => "Caps",
+                SButton.OemSemicolon => ";",
+                SButton.OemQuotes => "'",
+                SButton.Enter => "Enter",
+                SButton.LeftShift => "Shift",
+                SButton.OemComma => ",",
+                SButton.OemPeriod => ".",
+                SButton.OemQuestion => "/",
+                SButton.RightShift => "Shift",
+                SButton.LeftControl => "Ctrl",
+                SButton.LeftWindows => "Win",
+                SButton.LeftAlt => "Alt",
+                SButton.Space => "Space",
+                SButton.RightAlt => "Alt",
+                SButton.RightWindows => "Win",
+                SButton.RightControl => "Ctrl",
+                SButton.PrintScreen => "PrtSc",
+                SButton.Scroll => "Scroll",
+                SButton.Pause => "Pause",
+                SButton.Insert => "Ins",
+                SButton.Home => "Home",
+                SButton.PageUp => "PgUp",
+                SButton.Delete => "Del",
+                SButton.End => "End",
+                SButton.PageDown => "PgDn",
+                SButton.Up => "^",
+                SButton.Left => "<",
+                SButton.Down => "v",
+                SButton.Right => ">",
+                SButton.NumLock => "Num",
+                SButton.Divide => "/",
+                SButton.Multiply => "*",
+                SButton.Subtract => "-",
+                SButton.Add => "+",
+                SButton.Decimal => ".",
+                SButton.NumPad0 => "0",
+                SButton.NumPad1 => "1",
+                SButton.NumPad2 => "2",
+                SButton.NumPad3 => "3",
+                SButton.NumPad4 => "4",
+                SButton.NumPad5 => "5",
+                SButton.NumPad6 => "6",
+                SButton.NumPad7 => "7",
+                SButton.NumPad8 => "8",
+                SButton.NumPad9 => "9",
+                SButton.F1 => "F1",
+                SButton.F2 => "F2",
+                SButton.F3 => "F3",
+                SButton.F4 => "F4",
+                SButton.F5 => "F5",
+                SButton.F6 => "F6",
+                SButton.F7 => "F7",
+                SButton.F8 => "F8",
+                SButton.F9 => "F9",
+                SButton.F10 => "F10",
+                SButton.F11 => "F11",
+                SButton.F12 => "F12",
+                SButton.Escape => "Esc",
+                _ => btn.ToString()
+            };
         }
 
         private string? GetActionId(SButton button)
