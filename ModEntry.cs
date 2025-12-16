@@ -29,6 +29,25 @@ namespace HotKeyViewer
             _viewEngine = Helper.ModRegistry.GetApi<IViewEngine>("focustense.StardewUI")
                 ?? throw new InvalidOperationException("StardewUI not found");
 
+            // Register GMCM
+            var configMenu = Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
+            if (configMenu != null)
+            {
+                configMenu.Register(
+                    ModManifest,
+                    reset: () => _config = new ModConfig(),
+                    save: () => Helper.WriteConfig(_config)
+                );
+
+                configMenu.AddKeybind(
+                    ModManifest,
+                    name: () => "Toggle Overlay",
+                    tooltip: () => "Press this key to toggle the keyboard overlay.",
+                    getValue: () => _config.ToggleKey,
+                    setValue: value => _config.ToggleKey = value
+                );
+            }
+
             // Register the views directory (assets/views)
             _viewEngine.RegisterViews($"Mods/{ModManifest.UniqueID}/Views", "assets/views");
 
