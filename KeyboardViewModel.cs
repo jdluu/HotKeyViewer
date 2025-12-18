@@ -2,8 +2,8 @@
 using StardewModdingAPI;
 using System.ComponentModel;
 using Microsoft.Xna.Framework;
-using StardewValley;
 using StardewModdingAPI.Utilities;
+using HotKeyViewer.Services;
 
 namespace HotKeyViewer
 {
@@ -17,6 +17,7 @@ namespace HotKeyViewer
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        private readonly KeybindingService _keybindingService;
 
         private bool _isVisible;
         public bool IsVisible
@@ -49,7 +50,6 @@ namespace HotKeyViewer
         public List<KeyDisplay> ArrowBottomRow { get; private set; } = new();
 
         // Numpad Block
-        // Numpad Block
         public List<KeyDisplay> NumpadLeft1 { get; private set; } = new();
         public List<KeyDisplay> NumpadLeft2 { get; private set; } = new();
         public List<KeyDisplay> NumpadLeft3 { get; private set; } = new();
@@ -57,8 +57,9 @@ namespace HotKeyViewer
         public List<KeyDisplay> NumpadLeft5 { get; private set; } = new();
         public List<KeyDisplay> NumpadRight { get; private set; } = new();
 
-        public KeyboardViewModel()
+        public KeyboardViewModel(KeybindingService keybindingService)
         {
+            _keybindingService = keybindingService;
             RefreshBindings();
         }
 
@@ -134,12 +135,7 @@ namespace HotKeyViewer
             NumpadLeft4 = new List<KeyDisplay> { Key(SButton.NumPad1), Key(SButton.NumPad2), Key(SButton.NumPad3) };
             NumpadLeft5 = new List<KeyDisplay> { Key(SButton.NumPad0, width: "168px"), Key(SButton.Decimal) };
 
-            // Right Section (1 column wide, containing tall keys at specific positions)
-            // Note: Add and Enter on Numpad are typically 2 rows high.
-            // Using approximate height to span two rows + gaps. 
-            // Standard gap ~4px + Label height + Key height ~? 
-            // If we assume a fixed row height, we can estimate. 64 + 64 + margin.
-            // Let's use 150px for now to be safe or stick to 135px.
+            // Right Section
             NumpadRight = new List<KeyDisplay> 
             { 
                 Key(SButton.Subtract), 
@@ -161,28 +157,10 @@ namespace HotKeyViewer
         {
             // We use SButton.None for the actual Keybind to prevent StardewUI from rendering its default text.
             // We will render our own FaceText instead.
-            string actionId = GetActionId(btn) ?? "";
-            string tint = GetActionTint(actionId);
+            string actionId = _keybindingService.GetActionId(btn) ?? "";
+            string tint = _keybindingService.GetActionTint(actionId);
 
             return new KeyDisplay(new Keybind(SButton.None), GetKeyLabel(btn), actionId, width, height, tint);
-        }
-
-        private string GetActionTint(string actionId)
-        {
-            return actionId switch
-            {
-                // Movement - Green
-                "Up" or "Left" or "Down" or "Right" or "Run" => "#DDFFDD",
-                
-                // Combat/Tools - Blue
-                "Tool" or "Action" or "Slot 1" or "Slot 2" or "Slot 3" => "#DDEEFF",
-                
-                // UI - Yellow
-                "Menu" or "Journal" or "Map" or "Chat" => "#FFFFDD",
-                
-                // Default - Neutral/White
-                _ => "#FFFFFF"
-            };
         }
 
         private string GetKeyLabel(SButton btn)
@@ -267,38 +245,6 @@ namespace HotKeyViewer
                 SButton.Escape => "Esc",
                 _ => btn.ToString()
             };
-        }
-
-        private string? GetActionId(SButton button)
-        {
-            if (Game1.options == null) return null;
-
-            if (IsBound(Game1.options.menuButton, button)) return "Menu";
-            if (IsBound(Game1.options.journalButton, button)) return "Journal";
-            if (IsBound(Game1.options.mapButton, button)) return "Map";
-            if (IsBound(Game1.options.inventorySlot1, button)) return "Slot 1";
-            if (IsBound(Game1.options.inventorySlot2, button)) return "Slot 2";
-            if (IsBound(Game1.options.inventorySlot3, button)) return "Slot 3";
-            if (IsBound(Game1.options.moveUpButton, button)) return "Up";
-            if (IsBound(Game1.options.moveLeftButton, button)) return "Left";
-            if (IsBound(Game1.options.moveDownButton, button)) return "Down";
-            if (IsBound(Game1.options.moveRightButton, button)) return "Right";
-            if (IsBound(Game1.options.runButton, button)) return "Run";
-            if (IsBound(Game1.options.actionButton, button)) return "Action";
-            if (IsBound(Game1.options.useToolButton, button)) return "Tool";
-            if (IsBound(Game1.options.chatButton, button)) return "Chat";
-            
-            return null;
-        }
-
-        private bool IsBound(List<InputButton> buttons, SButton button)
-        {
-            return buttons != null && buttons.Any(b => b.ToSButton() == button);
-        }
-         
-        private bool IsBound(InputButton[] buttons, SButton button)
-        {
-             return buttons != null && buttons.Any(b => b.ToSButton() == button);
         }
 
         protected void OnPropertyChanged(string propertyName)
