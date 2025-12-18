@@ -8,7 +8,7 @@ using StardewModdingAPI.Utilities;
 namespace HotKeyViewer
 {
     // Record to hold key binding, label, and custom dimensions
-    public record KeyDisplay(Keybind Keybind, string FaceText, string Label, string Width = "80px", string Height = "80px")
+    public record KeyDisplay(Keybind Keybind, string FaceText, string Label, string Width = "80px", string Height = "80px", string Tint = "#FFFFFF")
     {
         public string LayoutSize => $"{Width} {Height}";
     }
@@ -161,14 +161,28 @@ namespace HotKeyViewer
         {
             // We use SButton.None for the actual Keybind to prevent StardewUI from rendering its default text.
             // We will render our own FaceText instead.
-            // However, we still need a background. If Keybind(None) renders nothing, we might need to handle that in SML.
-            // For now, let's keep the true button for debug, but ideally we switch to None if SML handles background.
-            // Actually, let's try passing the real button but relying on the overlay label covering it, 
-            // OR finding a way to make the button "blank".
-            // If we use SButton.None, we need a separate way to draw the box.
-            // Let's rely on the strategy of: SML purely renders a generic button background + our label.
-            // So passing SButton.None is safer to ensure no double-text.
-            return new KeyDisplay(new Keybind(SButton.None), GetKeyLabel(btn), GetActionId(btn) ?? "", width, height);
+            string actionId = GetActionId(btn) ?? "";
+            string tint = GetActionTint(actionId);
+
+            return new KeyDisplay(new Keybind(SButton.None), GetKeyLabel(btn), actionId, width, height, tint);
+        }
+
+        private string GetActionTint(string actionId)
+        {
+            return actionId switch
+            {
+                // Movement - Green
+                "Up" or "Left" or "Down" or "Right" or "Run" => "#DDFFDD",
+                
+                // Combat/Tools - Blue
+                "Tool" or "Action" or "Slot 1" or "Slot 2" or "Slot 3" => "#DDEEFF",
+                
+                // UI - Yellow
+                "Menu" or "Journal" or "Map" or "Chat" => "#FFFFDD",
+                
+                // Default - Neutral/White
+                _ => "#FFFFFF"
+            };
         }
 
         private string GetKeyLabel(SButton btn)
