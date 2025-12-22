@@ -44,17 +44,17 @@ namespace HotKeyViewer.Services
         {
             return actionId switch
             {
-                // Movement - Green
-                "Up" or "Left" or "Down" or "Right" or "Run" => "#DDFFDD",
+                // Movement - Dark Green
+                "Up" or "Left" or "Down" or "Right" or "Run" => "#153015",
                 
-                // Combat/Tools - Blue
-                "Tool" or "Action" or "Slot 1" or "Slot 2" or "Slot 3" => "#DDEEFF",
+                // Combat/Tools - Dark Blue
+                "Tool" or "Action" or "Slot 1" or "Slot 2" or "Slot 3" => "#152030",
                 
-                // UI - Yellow
-                "Menu" or "Journal" or "Map" or "Chat" => "#FFFFDD",
+                // UI - Dark Gold
+                "Menu" or "Journal" or "Map" or "Chat" => "#303015",
                 
-                // Default - Neutral/White
-                _ => "#FFFFFF"
+                // Default - Dark Grey
+                _ => "#202020"
             };
         }
 
