@@ -25,6 +25,7 @@ namespace HotKeyViewer
             _config = helper.ReadConfig<ModConfig>();
 
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
+            helper.Events.Content.AssetRequested += OnAssetRequested;
         }
 
         private void OnGameLaunched(object? sender, GameLaunchedEventArgs e)
@@ -32,22 +33,23 @@ namespace HotKeyViewer
             _viewEngine = Helper.ModRegistry.GetApi<IViewEngine>("focustense.StardewUI")
                 ?? throw new InvalidOperationException("StardewUI not found");
 
-            // Initialize dependencies
+            // 1. Register the views and sprites directory BEFORE enabling other features
+            _viewEngine.RegisterViews($"Mods/{ModManifest.UniqueID}/Views", "assets/views");
+            _viewEngine.RegisterSprites($"Mods/{ModManifest.UniqueID}/assets", "assets");
+
+            // 2. Initialize dependencies
             _gameState = new GameState();
             _keybindingService = new KeybindingService(_gameState);
             _viewModel = new KeyboardViewModel(_keybindingService);
 
-            // Register the views directory (assets/views)
+            // 3. Initialize Feature Services
             string layoutViewName = $"Mods/{ModManifest.UniqueID}/Views/KeyboardOverlay";
-            _viewEngine.RegisterViews($"Mods/{ModManifest.UniqueID}/Views", "assets/views");
-
-            // Initialize Feature Services
             _overlayService = new OverlayService(Helper, _viewEngine, _config, _viewModel, layoutViewName);
 
-            // Register GMCM
+            // 4. Register GMCM
             RegisterGmcm();
 
-            // Enable hot reloading for development
+            // 5. Enable hot reloading for development
             _viewEngine.EnableHotReloadingWithSourceSync();
         }
 
@@ -69,6 +71,18 @@ namespace HotKeyViewer
                     getValue: () => _config.ToggleKey,
                     setValue: value => _config.ToggleKey = value
                 );
+            }
+        }
+
+        private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
+        {
+            if (e.NameWithoutLocale?.IsEquivalentTo($"Mods/{ModManifest.UniqueID}/Views/KeyboardOverlay") == true)
+            {
+                e.LoadFromModFile<string>("assets/views/KeyboardOverlay.sml", AssetLoadPriority.Medium);
+            }
+            else if (e.NameWithoutLocale?.IsEquivalentTo($"Mods/{ModManifest.UniqueID}/assets/white") == true)
+            {
+                e.LoadFromModFile<Texture2D>("assets/white.png", AssetLoadPriority.Medium);
             }
         }
     }
