@@ -12,7 +12,7 @@
                         <lane *repeat={:FunctionRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
@@ -24,7 +24,7 @@
                          <lane *repeat={:NumberRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
@@ -36,7 +36,7 @@
                          <lane *repeat={:TopRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
@@ -48,7 +48,7 @@
                          <lane *repeat={:HomeRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
@@ -60,7 +60,7 @@
                          <lane *repeat={:BottomRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
@@ -72,7 +72,7 @@
                          <lane *repeat={:SpaceRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
@@ -87,7 +87,7 @@
                         <lane *repeat={:SystemRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
@@ -99,7 +99,7 @@
                         <lane *repeat={:NavRow1} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
@@ -110,7 +110,7 @@
                         <lane *repeat={:NavRow2} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
@@ -122,7 +122,7 @@
                         <lane *repeat={:ArrowUpRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
@@ -133,7 +133,7 @@
                         <lane *repeat={:ArrowBottomRow} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
@@ -150,7 +150,7 @@
                             <lane *repeat={:NumpadLeft1} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                                  <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
@@ -161,7 +161,7 @@
                             <lane *repeat={:NumpadLeft2} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                                  <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
@@ -172,7 +172,7 @@
                             <lane *repeat={:NumpadLeft3} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                                  <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
@@ -183,7 +183,7 @@
                             <lane *repeat={:NumpadLeft4} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                                  <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
@@ -194,7 +194,7 @@
                             <lane *repeat={:NumpadLeft5} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                                  <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
@@ -207,7 +207,7 @@
                         <lane *repeat={:NumpadRight} orientation="Vertical" horizontal-content-alignment="Middle" margin="2">
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
-                                    <label text={:Label} font="small" color="#FFFFFF" />
+                                    <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
                                     <label text={:FaceText} color="#FFFFFF" font="dialogue" />
                                 </lane>
                              </frame>
