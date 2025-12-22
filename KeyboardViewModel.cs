@@ -18,6 +18,7 @@ namespace HotKeyViewer
         public event PropertyChangedEventHandler? PropertyChanged;
 
         private readonly KeybindingService _keybindingService;
+        private readonly ProfileService? _profileService;
 
         private bool _isVisible;
         public bool IsVisible
@@ -57,9 +58,10 @@ namespace HotKeyViewer
         public List<KeyDisplay> NumpadLeft5 { get; private set; } = new();
         public List<KeyDisplay> NumpadRight { get; private set; } = new();
 
-        public KeyboardViewModel(KeybindingService keybindingService)
+        public KeyboardViewModel(KeybindingService keybindingService, ProfileService? profileService = null)
         {
             _keybindingService = keybindingService;
+            _profileService = profileService;
             RefreshBindings();
         }
 
@@ -157,15 +159,16 @@ namespace HotKeyViewer
 
         private KeyDisplay Key(SButton btn, float width = 80, float height = 100)
         {
-            // We use SButton.None for the actual Keybind to prevent StardewUI from rendering its default text.
-            // We will render our own FaceText instead.
+            // Check for custom profile label first, then fall back to action ID
+            string customLabel = _profileService?.GetLabel(btn) ?? "";
             string actionId = _keybindingService.GetActionId(btn) ?? "";
+            string displayLabel = !string.IsNullOrEmpty(customLabel) ? customLabel : actionId;
             string tint = _keybindingService.GetActionTint(actionId);
 
             return new KeyDisplay(
                 new Keybind(SButton.None), 
                 GetKeyLabel(btn), 
-                actionId, 
+                displayLabel, 
                 $"{(width * BaseScale):0.##}px", 
                 $"{(height * BaseScale):0.##}px", 
                 tint

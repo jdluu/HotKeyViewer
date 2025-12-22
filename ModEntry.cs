@@ -17,6 +17,7 @@ namespace HotKeyViewer
         private ModConfig _config = null!;
         private GameState _gameState = null!;
         private KeybindingService _keybindingService = null!;
+        private ProfileService _profileService = null!;
         private KeyboardViewModel _viewModel = null!;
         private OverlayService _overlayService = null!;
 
@@ -40,7 +41,8 @@ namespace HotKeyViewer
             // 2. Initialize dependencies
             _gameState = new GameState();
             _keybindingService = new KeybindingService(_gameState);
-            _viewModel = new KeyboardViewModel(_keybindingService);
+            _profileService = new ProfileService(Helper, Monitor);
+            _viewModel = new KeyboardViewModel(_keybindingService, _profileService);
 
             // 3. Initialize Feature Services with relative file path
             string layoutViewPath = "assets/views/KeyboardOverlay.sml";
@@ -56,22 +58,71 @@ namespace HotKeyViewer
         private void RegisterGmcm()
         {
             var configMenu = Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
-            if (configMenu != null)
-            {
-                configMenu.Register(
-                    ModManifest,
-                    reset: () => _config = new ModConfig(),
-                    save: () => Helper.WriteConfig(_config)
-                );
+            if (configMenu == null) return;
 
-                configMenu.AddKeybind(
-                    ModManifest,
-                    name: () => "Toggle Overlay",
-                    tooltip: () => "Press this key to toggle the keyboard overlay.",
-                    getValue: () => _config.ToggleKey,
-                    setValue: value => _config.ToggleKey = value
-                );
-            }
+            configMenu.Register(
+                ModManifest,
+                reset: () => _config = new ModConfig(),
+                save: () => 
+                {
+                    Helper.WriteConfig(_config);
+                    _profileService.SaveCurrentProfile();
+                }
+            );
+
+            // --- General Settings ---
+            configMenu.AddSectionTitle(ModManifest, () => "General");
+            
+            configMenu.AddKeybind(
+                ModManifest,
+                name: () => "Toggle Overlay",
+                tooltip: () => "Press this key to toggle the keyboard overlay.",
+                getValue: () => _config.ToggleKey,
+                setValue: value => _config.ToggleKey = value
+            );
+
+            // --- Profile Selection ---
+            configMenu.AddSectionTitle(ModManifest, () => "Profile");
+            
+            configMenu.AddTextOption(
+                ModManifest,
+                name: () => "Current Profile",
+                tooltip: () => "Name of the active key label profile.",
+                getValue: () => _profileService.CurrentProfileName,
+                setValue: name => _profileService.LoadProfile(name)
+            );
+
+            // --- Key Label Editors (Common Keys) ---
+            configMenu.AddSectionTitle(ModManifest, () => "Key Labels");
+            configMenu.AddParagraph(ModManifest, () => "Enter custom labels for keys. Leave blank to use default action.");
+
+            AddKeyLabelEditor(configMenu, SButton.F, "F Key");
+            AddKeyLabelEditor(configMenu, SButton.E, "E Key");
+            AddKeyLabelEditor(configMenu, SButton.T, "T Key");
+            AddKeyLabelEditor(configMenu, SButton.U, "U Key");
+            AddKeyLabelEditor(configMenu, SButton.M, "M Key");
+            AddKeyLabelEditor(configMenu, SButton.Y, "Y Key");
+            AddKeyLabelEditor(configMenu, SButton.X, "X Key");
+            AddKeyLabelEditor(configMenu, SButton.Z, "Z Key");
+            AddKeyLabelEditor(configMenu, SButton.C, "C Key");
+            AddKeyLabelEditor(configMenu, SButton.V, "V Key");
+            AddKeyLabelEditor(configMenu, SButton.J, "J Key");
+            AddKeyLabelEditor(configMenu, SButton.P, "P Key");
+        }
+
+        private void AddKeyLabelEditor(IGenericModConfigMenuApi configMenu, SButton key, string displayName)
+        {
+            configMenu.AddTextOption(
+                ModManifest,
+                name: () => displayName,
+                tooltip: () => $"Custom label for the {key} key.",
+                getValue: () => _profileService.GetLabel(key),
+                setValue: value => 
+                {
+                    _profileService.SetLabel(key, value);
+                    _viewModel.RefreshBindings();
+                }
+            );
         }
 
         private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
