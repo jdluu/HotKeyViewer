@@ -42,9 +42,9 @@ namespace HotKeyViewer
             _keybindingService = new KeybindingService(_gameState);
             _viewModel = new KeyboardViewModel(_keybindingService);
 
-            // 3. Initialize Feature Services
-            string layoutViewName = $"Mods/{ModManifest.UniqueID}/Views/KeyboardOverlay";
-            _overlayService = new OverlayService(Helper, _viewEngine, _config, _viewModel, layoutViewName);
+            // 3. Initialize Feature Services with relative file path
+            string layoutViewPath = "assets/views/KeyboardOverlay.sml";
+            _overlayService = new OverlayService(Helper, _viewEngine, _config, _viewModel, layoutViewPath);
 
             // 4. Register GMCM
             RegisterGmcm();

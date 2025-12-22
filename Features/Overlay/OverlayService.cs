@@ -52,7 +52,10 @@ namespace HotKeyViewer.Features.Overlay
             }
             else
             {
-                _activeMenuController = _viewEngine.CreateMenuControllerFromAsset(_viewsPath, _viewModel);
+                // Read SML directly from file to bypass asset system issues
+                string smlPath = System.IO.Path.Combine(_helper.DirectoryPath, _viewsPath);
+                string markup = System.IO.File.ReadAllText(smlPath);
+                _activeMenuController = _viewEngine.CreateMenuControllerFromMarkup(markup, _viewModel);
                 
                 // Cleanup on close
                 _activeMenuController.Closed += () => _activeMenuController = null;
