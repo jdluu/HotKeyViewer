@@ -68,60 +68,60 @@ namespace HotKeyViewer
             // --- Main Block ---
             FunctionRow = new List<KeyDisplay> 
             {
-                Key(SButton.Escape, width: "120px"), Key(SButton.F1), Key(SButton.F2), Key(SButton.F3), Key(SButton.F4),
+                Key(SButton.Escape, width: 120), Key(SButton.F1), Key(SButton.F2), Key(SButton.F3), Key(SButton.F4),
                 Key(SButton.F5), Key(SButton.F6), Key(SButton.F7), Key(SButton.F8),
-                Key(SButton.F9), Key(SButton.F10, width: "100px"), Key(SButton.F11, width: "100px"), Key(SButton.F12, width: "100px")
+                Key(SButton.F9), Key(SButton.F10, width: 100), Key(SButton.F11, width: 100), Key(SButton.F12, width: 100)
             };
 
             NumberRow = new List<KeyDisplay>
             {
                 Key(SButton.OemTilde), Key(SButton.D1), Key(SButton.D2), Key(SButton.D3), Key(SButton.D4), Key(SButton.D5),
                 Key(SButton.D6), Key(SButton.D7), Key(SButton.D8), Key(SButton.D9), Key(SButton.D0),
-                Key(SButton.OemMinus), Key(SButton.OemPlus), Key(SButton.Back, width: "135px")
+                Key(SButton.OemMinus), Key(SButton.OemPlus), Key(SButton.Back, width: 135)
             };
 
             TopRow = new List<KeyDisplay>
             {
-                Key(SButton.Tab, width: "130px"), Key(SButton.Q), Key(SButton.W), Key(SButton.E), Key(SButton.R), Key(SButton.T),
+                Key(SButton.Tab, width: 130), Key(SButton.Q), Key(SButton.W), Key(SButton.E), Key(SButton.R), Key(SButton.T),
                 Key(SButton.Y), Key(SButton.U), Key(SButton.I), Key(SButton.O), Key(SButton.P),
-                Key(SButton.OemOpenBrackets), Key(SButton.OemCloseBrackets), Key(SButton.OemPipe, width: "110px")
+                Key(SButton.OemOpenBrackets), Key(SButton.OemCloseBrackets), Key(SButton.OemPipe, width: 110)
             };
 
             HomeRow = new List<KeyDisplay>
             {
-                Key(SButton.CapsLock, width: "140px"), Key(SButton.A), Key(SButton.S), Key(SButton.D), Key(SButton.F), Key(SButton.G),
+                Key(SButton.CapsLock, width: 140), Key(SButton.A), Key(SButton.S), Key(SButton.D), Key(SButton.F), Key(SButton.G),
                 Key(SButton.H), Key(SButton.J), Key(SButton.K), Key(SButton.L), Key(SButton.OemSemicolon), Key(SButton.OemQuotes),
-                Key(SButton.Enter, width: "180px")
+                Key(SButton.Enter, width: 180)
             };
 
             BottomRow = new List<KeyDisplay>
             {
-                Key(SButton.LeftShift, width: "175px"), Key(SButton.Z), Key(SButton.X), Key(SButton.C), Key(SButton.V), Key(SButton.B),
+                Key(SButton.LeftShift, width: 175), Key(SButton.Z), Key(SButton.X), Key(SButton.C), Key(SButton.V), Key(SButton.B),
                 Key(SButton.N), Key(SButton.M), Key(SButton.OemComma), Key(SButton.OemPeriod), Key(SButton.OemQuestion),
-                Key(SButton.RightShift, width: "200px")
+                Key(SButton.RightShift, width: 200)
             };
 
             SpaceRow = new List<KeyDisplay>
             {
-                Key(SButton.LeftControl, width: "135px"), Key(SButton.LeftWindows, width: "120px"), Key(SButton.LeftAlt, width: "120px"),
-                Key(SButton.Space, width: "500px"), 
-                Key(SButton.RightAlt, width: "120px"), Key(SButton.RightWindows, width: "120px"), Key(SButton.RightControl, width: "135px")
+                Key(SButton.LeftControl, width: 135), Key(SButton.LeftWindows, width: 120), Key(SButton.LeftAlt, width: 120),
+                Key(SButton.Space, width: 500), 
+                Key(SButton.RightAlt, width: 120), Key(SButton.RightWindows, width: 120), Key(SButton.RightControl, width: 135)
             };
 
             // --- Navigation Block ---
             SystemRow = new List<KeyDisplay>
             {
-                Key(SButton.PrintScreen, width: "135px"), Key(SButton.Scroll, width: "135px"), Key(SButton.Pause, width: "135px")
+                Key(SButton.PrintScreen, width: 135), Key(SButton.Scroll, width: 135), Key(SButton.Pause, width: 135)
             };
 
             NavRow1 = new List<KeyDisplay>
             {
-                Key(SButton.Insert, width: "135px"), Key(SButton.Home, width: "135px"), Key(SButton.PageUp, width: "135px")
+                Key(SButton.Insert, width: 135), Key(SButton.Home, width: 135), Key(SButton.PageUp, width: 135)
             };
             
             NavRow2 = new List<KeyDisplay>
             {
-                Key(SButton.Delete, width: "135px"), Key(SButton.End, width: "135px"), Key(SButton.PageDown, width: "135px")
+                Key(SButton.Delete, width: 135), Key(SButton.End, width: 135), Key(SButton.PageDown, width: 135)
             };
 
             ArrowUpRow = new List<KeyDisplay> { Key(SButton.Up) };
@@ -129,18 +129,18 @@ namespace HotKeyViewer
 
             // --- Numpad Block ---
             // Left Section (3 columns wide)
-            NumpadLeft1 = new List<KeyDisplay> { Key(SButton.NumLock, width: "125px"), Key(SButton.Divide), Key(SButton.Multiply) };
+            NumpadLeft1 = new List<KeyDisplay> { Key(SButton.NumLock, width: 125), Key(SButton.Divide), Key(SButton.Multiply) };
             NumpadLeft2 = new List<KeyDisplay> { Key(SButton.NumPad7), Key(SButton.NumPad8), Key(SButton.NumPad9) };
             NumpadLeft3 = new List<KeyDisplay> { Key(SButton.NumPad4), Key(SButton.NumPad5), Key(SButton.NumPad6) };
             NumpadLeft4 = new List<KeyDisplay> { Key(SButton.NumPad1), Key(SButton.NumPad2), Key(SButton.NumPad3) };
-            NumpadLeft5 = new List<KeyDisplay> { Key(SButton.NumPad0, width: "168px"), Key(SButton.Decimal) };
+            NumpadLeft5 = new List<KeyDisplay> { Key(SButton.NumPad0, width: 168), Key(SButton.Decimal) };
 
             // Right Section
             NumpadRight = new List<KeyDisplay> 
             { 
                 Key(SButton.Subtract), 
-                Key(SButton.Add, height: "185px"), 
-                Key(SButton.Enter, height: "185px") // Numpad Enter 
+                Key(SButton.Add, height: 185), 
+                Key(SButton.Enter, height: 185) // Numpad Enter 
             };
 
 
@@ -153,14 +153,23 @@ namespace HotKeyViewer
             foreach (var p in props) OnPropertyChanged(p);
         }
 
-        private KeyDisplay Key(SButton btn, string width = "80px", string height = "80px")
+        private const float BaseScale = 0.8f; // Scale down to 80% to fit 1080p screens
+
+        private KeyDisplay Key(SButton btn, float width = 80, float height = 80)
         {
             // We use SButton.None for the actual Keybind to prevent StardewUI from rendering its default text.
             // We will render our own FaceText instead.
             string actionId = _keybindingService.GetActionId(btn) ?? "";
             string tint = _keybindingService.GetActionTint(actionId);
 
-            return new KeyDisplay(new Keybind(SButton.None), GetKeyLabel(btn), actionId, width, height, tint);
+            return new KeyDisplay(
+                new Keybind(SButton.None), 
+                GetKeyLabel(btn), 
+                actionId, 
+                $"{(width * BaseScale):0.##}px", 
+                $"{(height * BaseScale):0.##}px", 
+                tint
+            );
         }
 
         private string GetKeyLabel(SButton btn)
