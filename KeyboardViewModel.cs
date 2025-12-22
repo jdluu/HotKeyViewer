@@ -8,7 +8,7 @@ using HotKeyViewer.Services;
 namespace HotKeyViewer
 {
     // Record to hold key binding, label, and custom dimensions
-    public record KeyDisplay(Keybind Keybind, string FaceText, string Label, string Width = "80px", string Height = "80px", string Tint = "#FFFFFF")
+    public record KeyDisplay(SButton Key, Keybind Keybind, string FaceText, string Label, string Width = "80px", string Height = "80px", string Tint = "#FFFFFF")
     {
         public string LayoutSize => $"{Width} {Height}";
     }
@@ -31,6 +31,52 @@ namespace HotKeyViewer
                     _isVisible = value;
                     OnPropertyChanged(nameof(IsVisible));
                     if (value) RefreshBindings();
+                }
+            }
+        }
+
+        // --- Edit Mode State ---
+        private bool _isEditing;
+        public bool IsEditing
+        {
+            get => _isEditing;
+            set
+            {
+                if (_isEditing != value)
+                {
+                    _isEditing = value;
+                    OnPropertyChanged(nameof(IsEditing));
+                }
+            }
+        }
+
+        private SButton _editingKey;
+        public SButton EditingKey
+        {
+            get => _editingKey;
+            set
+            {
+                if (_editingKey != value)
+                {
+                    _editingKey = value;
+                    OnPropertyChanged(nameof(EditingKey));
+                    OnPropertyChanged(nameof(EditingKeyName));
+                }
+            }
+        }
+
+        public string EditingKeyName => _editingKey.ToString();
+
+        private string _editText = "";
+        public string EditText
+        {
+            get => _editText;
+            set
+            {
+                if (_editText != value)
+                {
+                    _editText = value;
+                    OnPropertyChanged(nameof(EditText));
                 }
             }
         }
@@ -166,6 +212,7 @@ namespace HotKeyViewer
             string tint = _keybindingService.GetActionTint(actionId);
 
             return new KeyDisplay(
+                btn,
                 new Keybind(SButton.None), 
                 GetKeyLabel(btn), 
                 displayLabel, 
@@ -262,6 +309,40 @@ namespace HotKeyViewer
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        // --- Click Handlers for Edit Mode ---
+        
+        /// <summary>
+        /// Called when a key is clicked. Opens the edit popup.
+        /// </summary>
+        public void OnKeyClick(SButton key)
+        {
+            EditingKey = key;
+            EditText = _profileService?.GetLabel(key) ?? "";
+            IsEditing = true;
+        }
+
+        /// <summary>
+        /// Called when Confirm button is clicked. Saves the label and closes popup.
+        /// </summary>
+        public void OnConfirmEdit()
+        {
+            if (_profileService != null && EditingKey != SButton.None)
+            {
+                _profileService.SetLabel(EditingKey, EditText);
+                _profileService.SaveCurrentProfile();
+                RefreshBindings();
+            }
+            IsEditing = false;
+        }
+
+        /// <summary>
+        /// Called when Cancel button is clicked. Closes popup without saving.
+        /// </summary>
+        public void OnCancelEdit()
+        {
+            IsEditing = false;
         }
     }
 }
