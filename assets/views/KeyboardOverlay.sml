@@ -2,7 +2,7 @@
         <lane orientation="Vertical">
             <label text="Keyboard Overlay" font="dialogue" horizontal-alignment="Middle" color="#FFFFFF" />
             
-            <frame background={@Mods/StardewUI/Sprites/ControlBorder} background-tint="#AA000000" padding="25" border={@Mods/StardewUI/Sprites/MenuBorder} border-thickness="36, 36, 40, 36">
+            <frame background={@Mods/StardewUI/Sprites/MenuBackground} padding="32,16,32,24" border={@Mods/StardewUI/Sprites/MenuBorder} border-thickness="36, 36, 40, 36">
                 <lane orientation="Horizontal" horizontal-content-alignment="Middle" margin="0">
                 
                 <!-- MAIN BLOCK -->

@@ -139,8 +139,8 @@ namespace HotKeyViewer
             NumpadRight = new List<KeyDisplay> 
             { 
                 Key(SButton.Subtract), 
-                Key(SButton.Add, height: 185), 
-                Key(SButton.Enter, height: 185) // Numpad Enter 
+                Key(SButton.Add, height: 220), 
+                Key(SButton.Enter, height: 220) // Numpad Enter 
             };
 
 
@@ -155,7 +155,7 @@ namespace HotKeyViewer
 
         private const float BaseScale = 0.8f; // Scale down to 80% to fit 1080p screens
 
-        private KeyDisplay Key(SButton btn, float width = 80, float height = 80)
+        private KeyDisplay Key(SButton btn, float width = 80, float height = 100)
         {
             // We use SButton.None for the actual Keybind to prevent StardewUI from rendering its default text.
             // We will render our own FaceText instead.
