@@ -80,7 +80,7 @@ namespace HotKeyViewer
             {
                 e.LoadFromModFile<string>("assets/views/KeyboardOverlay.sml", AssetLoadPriority.Medium);
             }
-            else if (e.NameWithoutLocale?.IsEquivalentTo($"Mods/{ModManifest.UniqueID}/assets/white") == true)
+            else if (e.NameWithoutLocale?.IsEquivalentTo($"Mods/{ModManifest.UniqueID}/assets/white.png") == true)
             {
                 e.LoadFromModFile<Texture2D>("assets/white.png", AssetLoadPriority.Medium);
             }
