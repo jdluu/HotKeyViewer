@@ -1,6 +1,6 @@
     <lane orientation="Vertical" layout="stretch" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
         <lane orientation="Vertical">
-            <label text="Keyboard Overlay" font="dialogue" horizontal-alignment="Middle" color="#FFFFFF" />
+            <label text="HotKey Viewer" font="dialogue" horizontal-alignment="Middle" color="#FFFFFF" />
             
             <frame background={@Mods/StardewUI/Sprites/MenuBackground} padding="32,16,32,24" border={@Mods/StardewUI/Sprites/MenuBorder} border-thickness="36, 36, 40, 36">
                 <lane orientation="Horizontal" horizontal-content-alignment="Middle" margin="0">

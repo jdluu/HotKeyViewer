@@ -22,7 +22,14 @@ namespace HotKeyViewer.Services
         {
             _helper = helper;
             _monitor = monitor;
-            _profilesPath = Path.Combine(helper.DirectoryPath, "profiles");
+            
+            // Use SMAPI's data folder to avoid StardewUI hot-reload watcher issues
+            // This stores profiles in %AppData%/StardewValley/Mods/HotKeyViewer/ (separate from mod files)
+            string dataPath = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                "StardewValley", "Mods", "HotKeyViewer"
+            );
+            _profilesPath = Path.Combine(dataPath, "profiles");
             
             // Ensure profiles directory exists
             if (!Directory.Exists(_profilesPath))
