@@ -92,37 +92,6 @@ namespace HotKeyViewer
                 setValue: name => _profileService.LoadProfile(name)
             );
 
-            // --- Key Label Editors (Common Keys) ---
-            configMenu.AddSectionTitle(ModManifest, () => "Key Labels");
-            configMenu.AddParagraph(ModManifest, () => "Enter custom labels for keys. Leave blank to use default action.");
-
-            AddKeyLabelEditor(configMenu, SButton.F, "F Key");
-            AddKeyLabelEditor(configMenu, SButton.E, "E Key");
-            AddKeyLabelEditor(configMenu, SButton.T, "T Key");
-            AddKeyLabelEditor(configMenu, SButton.U, "U Key");
-            AddKeyLabelEditor(configMenu, SButton.M, "M Key");
-            AddKeyLabelEditor(configMenu, SButton.Y, "Y Key");
-            AddKeyLabelEditor(configMenu, SButton.X, "X Key");
-            AddKeyLabelEditor(configMenu, SButton.Z, "Z Key");
-            AddKeyLabelEditor(configMenu, SButton.C, "C Key");
-            AddKeyLabelEditor(configMenu, SButton.V, "V Key");
-            AddKeyLabelEditor(configMenu, SButton.J, "J Key");
-            AddKeyLabelEditor(configMenu, SButton.P, "P Key");
-        }
-
-        private void AddKeyLabelEditor(IGenericModConfigMenuApi configMenu, SButton key, string displayName)
-        {
-            configMenu.AddTextOption(
-                ModManifest,
-                name: () => displayName,
-                tooltip: () => $"Custom label for the {key} key.",
-                getValue: () => _profileService.GetLabel(key),
-                setValue: value => 
-                {
-                    _profileService.SetLabel(key, value);
-                    _viewModel.RefreshBindings();
-                }
-            );
         }
 
         private void OnAssetRequested(object? sender, AssetRequestedEventArgs e)
