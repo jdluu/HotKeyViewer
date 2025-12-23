@@ -4,6 +4,7 @@ using System.ComponentModel;
 using Microsoft.Xna.Framework;
 using StardewModdingAPI.Utilities;
 using HotKeyViewer.Services;
+using System.Collections.ObjectModel;
 
 namespace HotKeyViewer
 {
@@ -109,27 +110,27 @@ namespace HotKeyViewer
         }
 
         // Main Block
-        public List<KeyDisplay> FunctionRow { get; private set; } = new(); // Esc, F1-F12
-        public List<KeyDisplay> NumberRow { get; private set; } = new();
-        public List<KeyDisplay> TopRow { get; private set; } = new();
-        public List<KeyDisplay> HomeRow { get; private set; } = new();
-        public List<KeyDisplay> BottomRow { get; private set; } = new();
-        public List<KeyDisplay> SpaceRow { get; private set; } = new();
+        public ObservableCollection<KeyDisplay> FunctionRow { get; } = new(); // Esc, F1-F12
+        public ObservableCollection<KeyDisplay> NumberRow { get; } = new();
+        public ObservableCollection<KeyDisplay> TopRow { get; } = new();
+        public ObservableCollection<KeyDisplay> HomeRow { get; } = new();
+        public ObservableCollection<KeyDisplay> BottomRow { get; } = new();
+        public ObservableCollection<KeyDisplay> SpaceRow { get; } = new();
 
         // Navigation Block
-        public List<KeyDisplay> SystemRow { get; private set; } = new(); // PrtScn...
-        public List<KeyDisplay> NavRow1 { get; private set; } = new(); // Ins...
-        public List<KeyDisplay> NavRow2 { get; private set; } = new(); // Del...
-        public List<KeyDisplay> ArrowUpRow { get; private set; } = new();
-        public List<KeyDisplay> ArrowBottomRow { get; private set; } = new();
+        public ObservableCollection<KeyDisplay> SystemRow { get; } = new(); // PrtScn...
+        public ObservableCollection<KeyDisplay> NavRow1 { get; } = new(); // Ins...
+        public ObservableCollection<KeyDisplay> NavRow2 { get; } = new(); // Del...
+        public ObservableCollection<KeyDisplay> ArrowUpRow { get; } = new();
+        public ObservableCollection<KeyDisplay> ArrowBottomRow { get; } = new();
 
         // Numpad Block
-        public List<KeyDisplay> NumpadLeft1 { get; private set; } = new();
-        public List<KeyDisplay> NumpadLeft2 { get; private set; } = new();
-        public List<KeyDisplay> NumpadLeft3 { get; private set; } = new();
-        public List<KeyDisplay> NumpadLeft4 { get; private set; } = new();
-        public List<KeyDisplay> NumpadLeft5 { get; private set; } = new();
-        public List<KeyDisplay> NumpadRight { get; private set; } = new();
+        public ObservableCollection<KeyDisplay> NumpadLeft1 { get; } = new();
+        public ObservableCollection<KeyDisplay> NumpadLeft2 { get; } = new();
+        public ObservableCollection<KeyDisplay> NumpadLeft3 { get; } = new();
+        public ObservableCollection<KeyDisplay> NumpadLeft4 { get; } = new();
+        public ObservableCollection<KeyDisplay> NumpadLeft5 { get; } = new();
+        public ObservableCollection<KeyDisplay> NumpadRight { get; } = new();
 
         public KeyboardViewModel(KeybindingService keybindingService, ProfileService? profileService = null)
         {
@@ -141,105 +142,79 @@ namespace HotKeyViewer
         public void RefreshBindings()
         {
             // --- Main Block ---
-            FunctionRow = new List<KeyDisplay> 
+            ResetCollection(FunctionRow, new[] 
             {
                 Key(SButton.Escape, width: 120), Key(SButton.F1), Key(SButton.F2), Key(SButton.F3), Key(SButton.F4),
                 Key(SButton.F5), Key(SButton.F6), Key(SButton.F7), Key(SButton.F8),
                 Key(SButton.F9), Key(SButton.F10, width: 100), Key(SButton.F11, width: 100), Key(SButton.F12, width: 100)
-            };
+            });
 
-            NumberRow = new List<KeyDisplay>
+            ResetCollection(NumberRow, new[]
             {
-                Key(SButton.OemTilde), Key(SButton.D1), Key(SButton.D2), Key(SButton.D3), Key(SButton.D4), Key(SButton.D5),
-                Key(SButton.D6), Key(SButton.D7), Key(SButton.D8), Key(SButton.D9), Key(SButton.D0),
-                Key(SButton.OemMinus), Key(SButton.OemPlus), Key(SButton.Back, width: 135)
-            };
+                Key(SButton.OemTilde), Key(SButton.D1), Key(SButton.D2), Key(SButton.D3), Key(SButton.D4),
+                Key(SButton.D5), Key(SButton.D6), Key(SButton.D7), Key(SButton.D8), Key(SButton.D9),
+                Key(SButton.D0), Key(SButton.OemMinus), Key(SButton.OemPlus), Key(SButton.Back, width: 160)
+            });
 
-            TopRow = new List<KeyDisplay>
+            ResetCollection(TopRow, new[]
             {
-                Key(SButton.Tab, width: 130), Key(SButton.Q), Key(SButton.W), Key(SButton.E), Key(SButton.R), Key(SButton.T),
-                Key(SButton.Y), Key(SButton.U), Key(SButton.I), Key(SButton.O), Key(SButton.P),
-                Key(SButton.OemOpenBrackets), Key(SButton.OemCloseBrackets), Key(SButton.OemPipe, width: 110)
-            };
+                Key(SButton.Tab, width: 120), Key(SButton.Q), Key(SButton.W), Key(SButton.E), Key(SButton.R),
+                Key(SButton.T), Key(SButton.Y), Key(SButton.U), Key(SButton.I), Key(SButton.O),
+                Key(SButton.P), Key(SButton.OemOpenBrackets), Key(SButton.OemCloseBrackets), Key(SButton.OemPipe, width: 120)
+            });
 
-            HomeRow = new List<KeyDisplay>
+            ResetCollection(HomeRow, new[]
             {
-                Key(SButton.CapsLock, width: 140), Key(SButton.A), Key(SButton.S), Key(SButton.D), Key(SButton.F), Key(SButton.G),
-                Key(SButton.H), Key(SButton.J), Key(SButton.K), Key(SButton.L), Key(SButton.OemSemicolon), Key(SButton.OemQuotes),
-                Key(SButton.Enter, width: 180)
-            };
+                Key(SButton.CapsLock, width: 140), Key(SButton.A), Key(SButton.S), Key(SButton.D), Key(SButton.F),
+                Key(SButton.G), Key(SButton.H), Key(SButton.J), Key(SButton.K), Key(SButton.L),
+                Key(SButton.OemSemicolon), Key(SButton.OemQuotes), Key(SButton.Enter, width: 180)
+            });
 
-            BottomRow = new List<KeyDisplay>
+            ResetCollection(BottomRow, new[]
             {
-                Key(SButton.LeftShift, width: 175), Key(SButton.Z), Key(SButton.X), Key(SButton.C), Key(SButton.V), Key(SButton.B),
-                Key(SButton.N), Key(SButton.M), Key(SButton.OemComma), Key(SButton.OemPeriod), Key(SButton.OemQuestion),
-                Key(SButton.RightShift, width: 200)
-            };
+                Key(SButton.LeftShift, width: 200), Key(SButton.Z), Key(SButton.X), Key(SButton.C), Key(SButton.V),
+                Key(SButton.B), Key(SButton.N), Key(SButton.M), Key(SButton.OemComma), Key(SButton.OemPeriod),
+                Key(SButton.OemQuestion), Key(SButton.RightShift, width: 220)
+            });
 
-            SpaceRow = new List<KeyDisplay>
+            ResetCollection(SpaceRow, new[]
             {
-                Key(SButton.LeftControl, width: 135), Key(SButton.LeftWindows, width: 120), Key(SButton.LeftAlt, width: 120),
-                Key(SButton.Space, width: 500), 
-                Key(SButton.RightAlt, width: 120), Key(SButton.RightWindows, width: 120), Key(SButton.RightControl, width: 135)
-            };
+                Key(SButton.LeftControl, width: 120), Key(SButton.LeftWindows), Key(SButton.LeftAlt),
+                Key(SButton.Space, width: 500),
+                Key(SButton.RightAlt), Key(SButton.RightWindows), Key(SButton.RightControl, width: 120)
+            });
 
             // --- Navigation Block ---
-            SystemRow = new List<KeyDisplay>
-            {
-                Key(SButton.PrintScreen, width: 135), Key(SButton.Scroll, width: 135), Key(SButton.Pause, width: 135)
-            };
-
-            NavRow1 = new List<KeyDisplay>
-            {
-                Key(SButton.Insert, width: 135), Key(SButton.Home, width: 135), Key(SButton.PageUp, width: 135)
-            };
+            ResetCollection(SystemRow, new[] { Key(SButton.PrintScreen), Key(SButton.Scroll), Key(SButton.Pause) });
+            ResetCollection(NavRow1, new[] { Key(SButton.Insert), Key(SButton.Home), Key(SButton.PageUp) });
+            ResetCollection(NavRow2, new[] { Key(SButton.Delete), Key(SButton.End), Key(SButton.PageDown) });
             
-            NavRow2 = new List<KeyDisplay>
-            {
-                Key(SButton.Delete, width: 135), Key(SButton.End, width: 135), Key(SButton.PageDown, width: 135)
-            };
-
-            ArrowUpRow = new List<KeyDisplay> { Key(SButton.Up) };
-            ArrowBottomRow = new List<KeyDisplay> { Key(SButton.Left), Key(SButton.Down), Key(SButton.Right) };
+            ResetCollection(ArrowUpRow, new[] { Key(SButton.Up) });
+            ResetCollection(ArrowBottomRow, new[] { Key(SButton.Left), Key(SButton.Down), Key(SButton.Right) });
 
             // --- Numpad Block ---
-            // Left Section (3 columns wide)
-            NumpadLeft1 = new List<KeyDisplay> { Key(SButton.NumLock, width: 125), Key(SButton.Divide), Key(SButton.Multiply) };
-            NumpadLeft2 = new List<KeyDisplay> { Key(SButton.NumPad7), Key(SButton.NumPad8), Key(SButton.NumPad9) };
-            NumpadLeft3 = new List<KeyDisplay> { Key(SButton.NumPad4), Key(SButton.NumPad5), Key(SButton.NumPad6) };
-            NumpadLeft4 = new List<KeyDisplay> { Key(SButton.NumPad1), Key(SButton.NumPad2), Key(SButton.NumPad3) };
-            NumpadLeft5 = new List<KeyDisplay> { Key(SButton.NumPad0, width: 168), Key(SButton.Decimal) };
+            ResetCollection(NumpadLeft1, new[] { Key(SButton.NumLock, width: 125), Key(SButton.Divide), Key(SButton.Multiply) });
+            ResetCollection(NumpadLeft2, new[] { Key(SButton.NumPad7), Key(SButton.NumPad8), Key(SButton.NumPad9) });
+            ResetCollection(NumpadLeft3, new[] { Key(SButton.NumPad4), Key(SButton.NumPad5), Key(SButton.NumPad6) });
+            ResetCollection(NumpadLeft4, new[] { Key(SButton.NumPad1), Key(SButton.NumPad2), Key(SButton.NumPad3) });
+            ResetCollection(NumpadLeft5, new[] { Key(SButton.NumPad0, width: 168), Key(SButton.Decimal) });
 
             // Right Section
-            NumpadRight = new List<KeyDisplay> 
+            ResetCollection(NumpadRight, new[] 
             { 
                 Key(SButton.Subtract), 
                 Key(SButton.Add, height: 220), 
                 Key(SButton.Enter, height: 220) // Numpad Enter 
-            };
-
-
-            // Notify UI of changes
-            OnPropertyChanged(nameof(FunctionRow));
-            OnPropertyChanged(nameof(NumberRow));
-            OnPropertyChanged(nameof(TopRow));
-            OnPropertyChanged(nameof(HomeRow));
-            OnPropertyChanged(nameof(BottomRow));
-            OnPropertyChanged(nameof(SpaceRow));
-            OnPropertyChanged(nameof(SystemRow));
-            OnPropertyChanged(nameof(NavRow1));
-            OnPropertyChanged(nameof(NavRow2));
-            OnPropertyChanged(nameof(ArrowUpRow));
-            OnPropertyChanged(nameof(ArrowBottomRow));
-            OnPropertyChanged(nameof(NumpadLeft1));
-            OnPropertyChanged(nameof(NumpadLeft2));
-            OnPropertyChanged(nameof(NumpadLeft3));
-            OnPropertyChanged(nameof(NumpadLeft4));
-            OnPropertyChanged(nameof(NumpadLeft5));
-            OnPropertyChanged(nameof(NumpadRight));
+            });
         }
 
         private const float BaseScale = 0.8f; // Scale down to 80% to fit 1080p screens
+
+        private void ResetCollection(ObservableCollection<KeyDisplay> collection, IEnumerable<KeyDisplay> items)
+        {
+            collection.Clear();
+            foreach (var item in items) collection.Add(item);
+        }
 
         private KeyDisplay Key(SButton btn, float width = 80, float height = 100)
         {
