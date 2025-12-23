@@ -1,6 +1,6 @@
 # Welcome to the HotKey Viewer Wiki!
 
-**HotKey Viewer** is a Stardew Valley mod that helps you visualize your keyboard inputs in real-time. It's perfect for verifying keybindings, streaming your gameplay, or analyzing speedrun inputs.
+**HotKey Viewer** is a Stardew Valley mod that helps you visualize your keyboard inputs in real-time.
 
 ## Quick Links
 
