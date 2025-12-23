@@ -15,6 +15,7 @@ namespace HotKeyViewer.Features.Overlay
         private readonly KeyboardViewModel _viewModel;
         private readonly string _viewsPath;
 
+        private string? _cachedMarkup;
         private IMenuController? _activeMenuController;
 
         public OverlayService(
@@ -45,6 +46,12 @@ namespace HotKeyViewer.Features.Overlay
 
         public void ToggleMenu()
         {
+            // Safety: Check if our menu was replaced externally (e.g. by another mod or game event)
+            if (_activeMenuController != null && Game1.activeClickableMenu != _activeMenuController.Menu)
+            {
+                _activeMenuController = null;
+            }
+
             if (_activeMenuController != null)
             {
                 _activeMenuController.Close();
@@ -52,15 +59,36 @@ namespace HotKeyViewer.Features.Overlay
             }
             else
             {
-                // Read SML directly from file to bypass asset system issues
-                string smlPath = System.IO.Path.Combine(_helper.DirectoryPath, _viewsPath);
-                string markup = System.IO.File.ReadAllText(smlPath);
-                _activeMenuController = _viewEngine.CreateMenuControllerFromMarkup(markup, _viewModel);
-                
-                // Cleanup on close
-                _activeMenuController.Closed += () => _activeMenuController = null;
-                
-                Game1.activeClickableMenu = _activeMenuController.Menu;
+                try 
+                {
+                    if (_cachedMarkup == null)
+                    {
+                        // Read SML directly from file to bypass asset system issues
+                        string smlPath = System.IO.Path.Combine(_helper.DirectoryPath, _viewsPath);
+                        if (!System.IO.File.Exists(smlPath))
+                        {
+                            // Fallback or error log
+                            return;
+                        }
+                        _cachedMarkup = System.IO.File.ReadAllText(smlPath);
+                    }
+
+                    _activeMenuController = _viewEngine.CreateMenuControllerFromMarkup(_cachedMarkup, _viewModel);
+                    
+                    // Cleanup on close
+                    _activeMenuController.Closed += () => 
+                    {
+                        if (_activeMenuController?.Menu == Game1.activeClickableMenu)
+                            _activeMenuController = null;
+                    };
+                    
+                    Game1.activeClickableMenu = _activeMenuController.Menu;
+                }
+                catch (Exception)
+                {
+                    // Log error safely if possible, or just fail silently to avoid crashing game
+                    _activeMenuController = null;
+                }
             }
         }
 

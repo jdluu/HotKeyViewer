@@ -6,7 +6,6 @@ namespace HotKeyViewer
     {
         public SButton ToggleKey { get; set; } = SButton.F1;
 
-        // Future config for colors, etc.
-        public string KeyMap { get; set; } = "Default";
+
     }
 }

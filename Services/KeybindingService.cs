@@ -2,7 +2,7 @@ using StardewModdingAPI;
 using StardewValley;
 using StardewValley.Menus;
 using System.Collections.Generic;
-using System.Linq;
+
 using HotKeyViewer.Infrastructure;
 
 namespace HotKeyViewer.Services
@@ -58,14 +58,16 @@ namespace HotKeyViewer.Services
             };
         }
 
-        private bool IsBound(List<InputButton> buttons, SButton button)
+        private bool IsBound(IList<InputButton> buttons, SButton button)
         {
-            return buttons != null && buttons.Any(b => b.ToSButton() == button);
-        }
-         
-        private bool IsBound(InputButton[] buttons, SButton button)
-        {
-             return buttons != null && buttons.Any(b => b.ToSButton() == button);
+            if (buttons == null) return false;
+            
+            // Avoid LINQ Any() to save allocations
+            for (int i = 0; i < buttons.Count; i++)
+            {
+                if (buttons[i].ToSButton() == button) return true;
+            }
+            return false;
         }
     }
 }
