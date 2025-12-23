@@ -6,7 +6,7 @@ namespace HotKeyViewer.Infrastructure
         /// <summary>
         /// Generates a fully qualified asset key for the content pipeline (e.g., "Mods/MyMod.UI/Views/KeyboardOverlay").
         /// </summary>
-        public static string GetAssetKey(IModManifest manifest, string assetName)
+        public static string GetAssetKey(IManifest manifest, string assetName)
         {
             return $"Mods/{manifest.UniqueID}/{assetName}";
         }
@@ -14,7 +14,7 @@ namespace HotKeyViewer.Infrastructure
         /// <summary>
         /// Generates the base prefix for asset keys (e.g., "Mods/MyMod.UI").
         /// </summary>
-        public static string GetAssetPrefix(IModManifest manifest)
+        public static string GetAssetPrefix(IManifest manifest)
         {
             return $"Mods/{manifest.UniqueID}";
         }

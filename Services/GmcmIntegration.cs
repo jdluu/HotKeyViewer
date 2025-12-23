@@ -7,14 +7,14 @@ namespace HotKeyViewer.Services
     internal class GmcmIntegration
     {
         private readonly IModHelper _helper;
-        private readonly IModManifest _manifest;
+        private readonly IManifest _manifest;
         private readonly ProfileService _profileService;
         private readonly Func<ModConfig> _getConfig;
         private readonly Action<ModConfig> _setConfig;
 
         public GmcmIntegration(
             IModHelper helper,
-            IModManifest manifest,
+            IManifest manifest,
             ProfileService profileService,
             Func<ModConfig> getConfig,
             Action<ModConfig> setConfig)

@@ -7,9 +7,9 @@ namespace HotKeyViewer.Services
 {
     internal class AssetManager
     {
-        private readonly IModManifest _manifest;
+        private readonly IManifest _manifest;
 
-        public AssetManager(IModHelper helper, IModManifest manifest)
+        public AssetManager(IModHelper helper, IManifest manifest)
         {
             _manifest = manifest;
             helper.Events.Content.AssetRequested += OnAssetRequested;
