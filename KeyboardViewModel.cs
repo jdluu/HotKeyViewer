@@ -219,13 +219,24 @@ namespace HotKeyViewer
             };
 
 
-            // Notify UI
-            var props = new[] { 
-                nameof(FunctionRow), nameof(NumberRow), nameof(TopRow), nameof(HomeRow), nameof(BottomRow), nameof(SpaceRow),
-                nameof(SystemRow), nameof(NavRow1), nameof(NavRow2), nameof(ArrowUpRow), nameof(ArrowBottomRow),
-                nameof(NumpadLeft1), nameof(NumpadLeft2), nameof(NumpadLeft3), nameof(NumpadLeft4), nameof(NumpadLeft5), nameof(NumpadRight)
-            };
-            foreach (var p in props) OnPropertyChanged(p);
+            // Notify UI of changes
+            OnPropertyChanged(nameof(FunctionRow));
+            OnPropertyChanged(nameof(NumberRow));
+            OnPropertyChanged(nameof(TopRow));
+            OnPropertyChanged(nameof(HomeRow));
+            OnPropertyChanged(nameof(BottomRow));
+            OnPropertyChanged(nameof(SpaceRow));
+            OnPropertyChanged(nameof(SystemRow));
+            OnPropertyChanged(nameof(NavRow1));
+            OnPropertyChanged(nameof(NavRow2));
+            OnPropertyChanged(nameof(ArrowUpRow));
+            OnPropertyChanged(nameof(ArrowBottomRow));
+            OnPropertyChanged(nameof(NumpadLeft1));
+            OnPropertyChanged(nameof(NumpadLeft2));
+            OnPropertyChanged(nameof(NumpadLeft3));
+            OnPropertyChanged(nameof(NumpadLeft4));
+            OnPropertyChanged(nameof(NumpadLeft5));
+            OnPropertyChanged(nameof(NumpadRight));
         }
 
         private const float BaseScale = 0.8f; // Scale down to 80% to fit 1080p screens
