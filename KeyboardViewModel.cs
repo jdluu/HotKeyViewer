@@ -7,10 +7,37 @@ using HotKeyViewer.Services;
 
 namespace HotKeyViewer
 {
-    // Record to hold key binding, label, and custom dimensions
-    public record KeyDisplay(SButton Key, Keybind Keybind, string FaceText, string Label, string Width = "80px", string Height = "80px", string Tint = "#FFFFFF")
+    // Class to hold key binding, label, and custom dimensions
+    public class KeyDisplay
     {
+        public SButton Key { get; }
+        public Keybind Keybind { get; }
+        public string FaceText { get; }
+        public string Label { get; }
+        public string Width { get; } = "80px";
+        public string Height { get; } = "80px";
+        public string Tint { get; } = "#FFFFFF";
+
+        private readonly Action<SButton> _onClick;
+
         public string LayoutSize => $"{Width} {Height}";
+
+        public KeyDisplay(SButton key, Keybind keybind, string faceText, string label, Action<SButton> onClick, string width = "80px", string height = "80px", string tint = "#FFFFFF")
+        {
+            Key = key;
+            Keybind = keybind;
+            FaceText = faceText;
+            Label = label;
+            _onClick = onClick;
+            Width = width;
+            Height = height;
+            Tint = tint;
+        }
+
+        public void Click()
+        {
+            _onClick?.Invoke(Key);
+        }
     }
 
     public class KeyboardViewModel : INotifyPropertyChanged
@@ -216,6 +243,7 @@ namespace HotKeyViewer
                 new Keybind(SButton.None), 
                 GetKeyLabel(btn), 
                 displayLabel, 
+                OnKeyClick,
                 $"{(width * BaseScale):0.##}px", 
                 $"{(height * BaseScale):0.##}px", 
                 tint
