@@ -185,9 +185,9 @@ namespace HotKeyViewer
             });
 
             // --- Navigation Block ---
-            ResetCollection(SystemRow, new[] { Key(SButton.PrintScreen), Key(SButton.Scroll), Key(SButton.Pause) });
-            ResetCollection(NavRow1, new[] { Key(SButton.Insert), Key(SButton.Home), Key(SButton.PageUp) });
-            ResetCollection(NavRow2, new[] { Key(SButton.Delete), Key(SButton.End), Key(SButton.PageDown) });
+            ResetCollection(SystemRow, new[] { Key(SButton.PrintScreen, width: 110), Key(SButton.Scroll, width: 110), Key(SButton.Pause, width: 110) });
+            ResetCollection(NavRow1, new[] { Key(SButton.Insert, width: 110), Key(SButton.Home, width: 110), Key(SButton.PageUp, width: 110) });
+            ResetCollection(NavRow2, new[] { Key(SButton.Delete, width: 110), Key(SButton.End, width: 110), Key(SButton.PageDown, width: 110) });
             
             ResetCollection(ArrowUpRow, new[] { Key(SButton.Up) });
             ResetCollection(ArrowBottomRow, new[] { Key(SButton.Left), Key(SButton.Down), Key(SButton.Right) });

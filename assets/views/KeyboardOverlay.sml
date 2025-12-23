@@ -13,7 +13,7 @@
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                         </lane>
@@ -25,7 +25,7 @@
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                         </lane>
@@ -37,7 +37,7 @@
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                         </lane>
@@ -49,7 +49,7 @@
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                         </lane>
@@ -61,7 +61,7 @@
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                         </lane>
@@ -73,7 +73,7 @@
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                         </lane>
@@ -88,7 +88,7 @@
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                         </lane>
@@ -100,7 +100,7 @@
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                         </lane>
@@ -111,7 +111,7 @@
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                         </lane>
@@ -123,7 +123,7 @@
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                         </lane>
@@ -134,7 +134,7 @@
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                         </lane>
@@ -151,7 +151,7 @@
                                  <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                             </lane>
@@ -162,7 +162,7 @@
                                  <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                             </lane>
@@ -173,7 +173,7 @@
                                  <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                             </lane>
@@ -184,7 +184,7 @@
                                  <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                             </lane>
@@ -195,7 +195,7 @@
                                  <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                             </lane>
@@ -208,7 +208,7 @@
                              <frame layout={:LayoutSize} background={@Mods/StardewUI/Sprites/ControlBorder} background-tint={:Tint} padding="4" horizontal-content-alignment="Middle" vertical-content-alignment="Middle" focusable="true" left-click=|Click()|>
                                 <lane orientation="Vertical" horizontal-content-alignment="Middle" vertical-content-alignment="Middle">
                                     <label text={:Label} font="small" scale="0.7" color="#FFFFFF" />
-                                    <label text={:FaceText} color="#FFFFFF" font="dialogue" />
+                                    <label text={:FaceText} color="#FFFFFF" font="small" scale="1.5" />
                                 </lane>
                              </frame>
                         </lane>
