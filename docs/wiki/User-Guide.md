@@ -5,7 +5,7 @@
 Once you've installed the mod, launch Stardew Valley and load your save file. The HotKey Viewer is active by default but hidden until toggled.
 
 ### Toggling the Overlay
-Press **F8** on your keyboard to toggle the overlay on and off.
+Press **F1** on your keyboard to toggle the overlay on and off.
 *   You can change this hotkey in the Generic Mod Config Menu settings.
 
 ## The Interface

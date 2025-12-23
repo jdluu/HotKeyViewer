@@ -22,7 +22,7 @@
 
 ## Usage
 
-*   **Toggle Overlay**: Press **F8** (default) to show or hide the keyboard viewer.
+*   **Toggle Overlay**: Press **F1** (default) to show or hide the keyboard viewer.
 *   **Configuration**:
     *   Install **Generic Mod Config Menu (GMCM)** to access settings in-game.
     *   Go to the title screen -> click the gear icon (GMCM) -> select **HotKey Viewer**.
