@@ -5,7 +5,7 @@
 ## Quick Links
 
 *   **[User Guide](User-Guide)**: Learn how to open the overlay and interpret the display.
-*   **[Custom Profiles](Custom-Profiles)**: Rename your keys to something more meaningful.
+*   **[Sharable Profiles](Custom-Profiles)**: Manage and share your custom action labels.
 *   **[Compatibility](Compatibility)**: Check if this mod works with your other mods.
 
 ## Project Goal

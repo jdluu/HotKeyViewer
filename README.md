@@ -9,8 +9,8 @@
 
 *   **Real-Time Visualization**: Keys light up instantly as you press them.
 *   **Stardew Aesthetic**: Designed with pixel-art fonts and colors to match the game's UI.
-*   **Action Labels**: Displays the in-game action (e.g., "Menu", "Chat", "Run") bound to each key, not just the letter.
-*   **Custom Profiles**: Rename keys to match your specific setup (e.g., "Flashlight", "Split") via simple JSON editing.
+*   **Action Labels**: Displays the in-game action (e.g., "Menu", "Chat", "Run") or custom user-defined text bound to each key.
+*   **Sharable Profiles**: Export and import your text labels via JSON files to easily update your overlay for different mod setups or share them with others.
 *   **Configurable**: Adjust transparency, scale, and toggle hotkeys via Generic Mod Config Menu (GMCM).
 
 ## Installation
@@ -26,11 +26,12 @@
 *   **Configuration**:
     *   Install **Generic Mod Config Menu (GMCM)** to access settings in-game.
     *   Go to the title screen -> click the gear icon (GMCM) -> select **HotKey Viewer**.
-    *   Adjust **Overlay Scale** and **Transparency**.
+    *   **Toggle Overlay**: Change the key used to show/hide the overlay (Default: F1).
+    *   **Current Profile**: Switch between different key label profiles.
 
-## Customizing Key Labels
+## Action Labels & Sharable Profiles
 
-You can give your keys custom names (like "Map" instead of "M") by editing the profile configuration.
+You can set custom text labels for your keys (like "Map" instead of "M") to describe exactly what they do in your specific mod configuration. These labels are saved into **Profiles**.
 
 1.  Navigate to `Mods/HotKeyViewer/profiles/`.
 2.  Open `default.json` (or create a new one).

@@ -22,6 +22,5 @@ You can customize the look and feel of the overlay using **Generic Mod Config Me
 1.  Open the GMCM menu (gear icon on title screen or in-game options).
 2.  Select **HotKey Viewer**.
 3.  **Settings Available**:
-    *   **Overlay Scale**: Make the keyboard larger or smaller (0.5x to 2.0x).
-    *   **Transparency**: Adjust how see-through the background is.
     *   **Toggle Key**: Change the key used to show/hide the overlay.
+    *   **Current Profile**: Switch between different key label profiles (e.g. "Default", "My Custom Layout").
