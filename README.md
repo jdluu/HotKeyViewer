@@ -3,7 +3,7 @@
 ![Stardew Valley](https://img.shields.io/badge/Stardew%20Valley-1.6+-green.svg)
 ![SMAPI](https://img.shields.io/badge/SMAPI-4.0+-blue.svg)
 
-**HotKey Viewer** provides an on-screen, visual keyboard overlay that highlights your currently pressed keys in real-time. It is designed to help streamers, speedrunners, and content creators display their inputs clearly and aesthetically.
+**HotKey Viewer** provides an on-screen, visual keyboard overlay that highlights your currently pressed keys in real-time.
 
 ## Features
 
@@ -52,4 +52,4 @@ You can give your keys custom names (like "Map" instead of "M") by editing the p
 
 ## License
 
-MIT License. See [LICENSE](LICENSE) for details.
+GNU Lesser General Public License v3.0. See [LICENSE.txt](LICENSE.txt) for details.
