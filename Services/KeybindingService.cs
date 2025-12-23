@@ -40,6 +40,30 @@ namespace HotKeyViewer.Services
             return null;
         }
 
+        public int GetBindingCount(SButton button)
+        {
+            if (_gameState.Options == null) return 0;
+            var options = _gameState.Options;
+            int count = 0;
+
+            if (IsBound(options.menuButton, button)) count++;
+            if (IsBound(options.journalButton, button)) count++;
+            if (IsBound(options.mapButton, button)) count++;
+            if (IsBound(options.inventorySlot1, button)) count++;
+            if (IsBound(options.inventorySlot2, button)) count++;
+            if (IsBound(options.inventorySlot3, button)) count++;
+            if (IsBound(options.moveUpButton, button)) count++;
+            if (IsBound(options.moveLeftButton, button)) count++;
+            if (IsBound(options.moveDownButton, button)) count++;
+            if (IsBound(options.moveRightButton, button)) count++;
+            if (IsBound(options.runButton, button)) count++;
+            if (IsBound(options.actionButton, button)) count++;
+            if (IsBound(options.useToolButton, button)) count++;
+            if (IsBound(options.chatButton, button)) count++;
+
+            return count;
+        }
+
         public string GetActionTint(string actionId)
         {
             return actionId switch

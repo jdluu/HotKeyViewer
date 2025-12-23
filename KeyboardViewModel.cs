@@ -221,7 +221,21 @@ namespace HotKeyViewer
             // Check for custom profile label first, then fall back to action ID
             string customLabel = _profileService?.GetLabel(btn) ?? "";
             string actionId = _keybindingService.GetActionId(btn) ?? "";
-            string displayLabel = !string.IsNullOrEmpty(customLabel) ? customLabel : actionId;
+            string rawLabel = !string.IsNullOrEmpty(customLabel) ? customLabel : actionId;
+            
+            // UX Constraint: Truncate to ~9 chars
+            string displayLabel = rawLabel;
+            if (displayLabel.Length > 9)
+            {
+                displayLabel = displayLabel.Substring(0, 8) + ".";
+            }
+
+            // UX Constraint: Multi-binding hint
+            if (_keybindingService.GetBindingCount(btn) > 1)
+            {
+                displayLabel += "+";
+            }
+
             string tint = _keybindingService.GetActionTint(actionId);
 
             return new KeyDisplay(
